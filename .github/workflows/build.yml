@@ -35,7 +35,7 @@ jobs:
                   name: config before build
                   path: .config
 
-            - name: Build immortalwrtARM
+            - name: Build immortalwrt
               run: |
                   cd $REPO_NAME
                   make -j$(nproc)
