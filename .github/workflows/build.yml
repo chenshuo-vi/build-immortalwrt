@@ -14,24 +14,20 @@ jobs:
             - name: Clone from github
               uses: actions/checkout@v3
 
-            - name: Clone immortalwrtARM repo
+            - name: Clone immortalwrt repo
               run: |
                   $CLONE_COMMAND
 
             - name: Copy config to source code
               run: |
-                  cp -f .config $REPO_NAME/
+                  cp -f .config diy.sh $REPO_NAME/
 
-            - name: Get the dependency of immortalwrtARM
+            - name: Get the dependency of immortalwrt
               run: |
                   cd $REPO_NAME
                   chmod +x diy.sh
                   ./diy.sh
                   ./scripts/feeds update -a && ./scripts/feeds install -a
-
-            - name: Copy config to source code
-              run: |
-                  cp -f .config feeds.conf.default diy.sh $REPO_NAME/
 
             - name: Upload config before build
               uses: actions/upload-artifact@v3
