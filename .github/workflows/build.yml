@@ -25,9 +25,9 @@ jobs:
             - name: Get the dependency of immortalwrt
               run: |
                   cd $REPO_NAME
+                  ./scripts/feeds update -a && ./scripts/feeds install -a
                   chmod +x diy.sh
                   ./diy.sh
-                  ./scripts/feeds update -a && ./scripts/feeds install -a
 
             - name: Upload config before build
               uses: actions/upload-artifact@v3
