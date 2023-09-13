@@ -1,0 +1,53 @@
+name: Build ImmortalWrt
+
+on:
+    workflow_dispatch:
+
+env:
+    CLONE_COMMAND: git clone -b mt7986 --depth 1 https://github.com/padavanonly/immortalwrtARM
+    REPO_NAME: immortalwrtARM
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone from github
+              uses: actions/checkout@v3
+
+            - name: Clone immortalwrtARM repo
+              run: |
+                  $CLONE_COMMAND
+
+            - name: Copy config to source code
+              run: |
+                  cp -f .config feeds.conf.default diy.sh $REPO_NAME/
+
+            - name: Get the dependency of immortalwrtARM
+              run: |
+                  cd $REPO_NAME
+                  chmod +x diy.sh
+                  ./diy.sh
+                  ./scripts/feeds update -a && ./scripts/feeds install -a
+
+            - name: Copy config to source code
+              run: |
+                  cp -f .config feeds.conf.default diy.sh $REPO_NAME/
+
+            - name: Upload config before build
+              uses: actions/upload-artifact@v3
+              with:
+                  name: config before build
+                  path: .config
+
+            - name: Build immortalwrtARM
+              run: |
+                  cd $REPO_NAME
+                  make -j$(nproc)
+                  pwd
+                  ls
+
+            - name: Upload build
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ImmortalWrt_build_files
+                  path: targets
