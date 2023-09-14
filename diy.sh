@@ -1,5 +1,5 @@
 #修改默认登录地址
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 #修改wifi信息
 sed -i 's/OpenWrt/qqq/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
