@@ -38,6 +38,7 @@ jobs:
             - name: Build immortalwrt
               run: |
                   cd $REPO_NAME
+                  make download -j8
                   make -j$(nproc)
 
             - name: Upload build
