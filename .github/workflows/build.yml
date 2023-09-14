@@ -39,7 +39,7 @@ jobs:
                   find dl -size -1024c -exec rm -f {} \;
                   make -j$(nproc) || make -j1 V=s
 
-            - name: Move results to root
+            - name: Organize Files
               run: |
                   cd $REPO_NAME/bin/targets
 
