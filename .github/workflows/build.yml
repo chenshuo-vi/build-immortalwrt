@@ -39,12 +39,14 @@ jobs:
                   find dl -size -1024c -exec rm -f {} \;
                   make -j$(nproc) || make -j1 V=s
 
-            - name: Organize Files
+            - name: Organize files
               run: |
-                  cd $REPO_NAME/bin/targets
+                  cd $REPO_NAME/bin/targets/*/*
+                  rm -rf packages
+                  echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
             - name: Upload build
               uses: actions/upload-artifact@v3
               with:
-                  name: ${{ env.DEVICE }}
-                  path: targets
+                  name: OpenWrt_ImmortalWrt
+                  path: ${{ env.FIRMWARE }}
