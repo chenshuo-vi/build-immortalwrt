@@ -38,7 +38,7 @@ jobs:
             - name: Build immortalwrt
               run: |
                   cd $REPO_NAME
-                  make -j$(($(nproc)+1)) || make -j1 V=s
+                  make -j$(nproc)
 
             - name: Upload build
               uses: actions/upload-artifact@v3
