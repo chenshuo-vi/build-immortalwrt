@@ -35,14 +35,6 @@ jobs:
                   name: config before build
                   path: .config
 
-            - name: Download Package
-              run: |
-                  cd $REPO_NAME
-                  make defconfig
-                  make download -j8
-                  find dl -size -1024c -exec ls -l {} \;
-                  find dl -size -1024c -exec rm -f {} \;
-
             - name: Build immortalwrt
               run: |
                   cd $REPO_NAME
