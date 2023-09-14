@@ -6,7 +6,8 @@ on:
 env:
     CLONE_COMMAND: git clone -b master --depth 1 https://github.com/padavanonly/immortalwrt
     REPO_NAME: immortalwrt
-
+    DEVICE: RM2100
+    
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -29,20 +30,21 @@ jobs:
                   chmod +x diy.sh
                   ./diy.sh
 
-            - name: Upload config before build
-              uses: actions/upload-artifact@v3
-              with:
-                  name: config before build
-                  path: .config
-
             - name: Build immortalwrt
               run: |
                   cd $REPO_NAME
+                  make defconfig
                   make download -j8
-                  make -j$(nproc)
+                  find dl -size -1024c -exec ls -l {} \;
+                  find dl -size -1024c -exec rm -f {} \;
+                  make -j$(nproc) || make -j1 V=s
+
+            - name: Move results to root
+              run: |
+                  cd $REPO_NAME/bin/targets
 
             - name: Upload build
               uses: actions/upload-artifact@v3
               with:
-                  name: ImmortalWrt_build_files
+                  name: ${{ env.DEVICE }}
                   path: targets
