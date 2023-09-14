@@ -12,7 +12,7 @@ sed -i 's/option week '3'/option week '7'/g' feeds/luci/applications/luci-app-au
 sed -i 's/option enable '0'/option enable '1'/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 
 #关闭flow offload
-#sed -i 's/option syn_flood	1/option syn_flood	0/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
+sed -i 's/option syn_flood	1/option syn_flood	0/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 
 #添加主题
-sed -i '/+luci-light/a\+luci-theme-argon \' feeds/luci/collections/luci/Makefile
+sed -i '/+luci-light/a \	++luci-theme-argon \\' feeds/luci/collections/luci/Makefile
