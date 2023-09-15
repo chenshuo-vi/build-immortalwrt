@@ -1,6 +1,9 @@
 #修改默认登录地址
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
+#修改主题
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
+
 #修改wifi信息
 #5g
 sed -i 's/Channel=36/Channel=40/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
@@ -27,8 +30,3 @@ sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/aut
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
 
-#下载主题应用
-git clone -b 18.06 https://github.com/chenshuo-l/luci-theme-argon.git package/luci-theme-argon
-
-#添加主题
-sed -i '/luci-light/a \	+luci-theme-argon \\' feeds/luci/collections/luci/Makefile
