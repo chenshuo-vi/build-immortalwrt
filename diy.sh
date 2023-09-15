@@ -6,14 +6,14 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 sed -i 's/Channel=36/Channel=40/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
 sed -i 's/SSID1=OpenWrt/SSID1=qqq_5g/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
 sed -i 's/AuthMode=OPEN/AuthMode=WPA2PSK/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
-sed -i 's/EncrypType=NONE/EncrypType=AES/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
+sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
 sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.5G.dat
 
 #2g
 sed -i 's/Channel=6/Channel=11/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.2G.dat
 sed -i 's/SSID1=OpenWrt/SSID1=qqq/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.2G.dat
 sed -i 's/AuthMode=OPEN/AuthMode=WPA2PSK/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.2G.dat
-sed -i 's/EncrypType=NONE/EncrypType=AES/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.2G.dat
+sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-drivers/mt_wifi/files/mt7615.2G.dat
 sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.2G.dat
 
 #添加定时重启插件
