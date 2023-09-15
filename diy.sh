@@ -8,8 +8,9 @@ sed -i '/psk2/a\set wireless.default_radio${devidx}.key='123456789'' package/ker
 
 #添加定时重启插件
 sed -i '/luci-lib-fs/a \	luci-app-autoreboot \\' include/target.mk
+sed -i '/luci-lib-fs/a \	luci-app-filebrowser \\' include/target.mk
 sed -i 's/3/7/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
-sed -i 's/0/1/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
+sed -i '6s/0/1/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 
 #关闭flow offload
 sed -i 's/option syn_flood	1/option syn_flood	0/g' files/package/network/config/firewall/files/firewall.config
