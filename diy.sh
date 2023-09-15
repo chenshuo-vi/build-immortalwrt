@@ -25,5 +25,8 @@ sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/aut
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
 
+#下载主题应用
+git clone -b 18.06 https://github.com/chenshuo-l/luci-theme-argon.git package/luci-theme-argon
+
 #添加主题
 sed -i '/luci-light/a \	+luci-theme-argon \\' feeds/luci/collections/luci/Makefile
