@@ -13,7 +13,7 @@ sed -i 's/3/7/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/aut
 sed -i 's/0/1/2g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 
 #关闭flow offload
-sed -i 's/option syn_flood	1/option syn_flood	0/g' files/package/network/config/firewall/files/firewall.config
+sed -i 's/option syn_flood	1/option syn_flood	0/g' package/network/config/firewall/files/firewall.config
 
 #添加主题
 sed -i '/luci-light/a \	+luci-theme-argon \\' feeds/luci/collections/luci/Makefile
