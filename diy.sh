@@ -30,6 +30,8 @@ sed -i 's/luci-app-filetransfer/luci-app-autoreboot/g' include/target.mk
 sed -i 's/3/7/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 
+#删除upnp(藏的真隐蔽)
+sed -i 's/luci-app-upnp\ //g' target/linux/ramips/mt7621/target.mk
+
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
-
