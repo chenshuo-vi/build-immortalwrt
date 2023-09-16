@@ -9,6 +9,8 @@ git clone -b 18.06 https://github.com/chenshuo-l/luci-theme-argon.git package/lu
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 #修改wifi信息
+#2g
+
 
 #5g
 sed -i 's/Channel=36/Channel=40/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
