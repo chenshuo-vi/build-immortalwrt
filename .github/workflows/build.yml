@@ -43,6 +43,12 @@ jobs:
               run: |
                   cd $REPO_NAME/bin/targets/*/*
                   rm -rf packages
+                  rm -rf version.buildinfo
+                  rm -rf feeds.buildinfo
+                  rm -rf config.buildinfo
+                  rm -rf profiles.json
+                  rm -rf sha256sums
+                  rm -rf *.manifest
                   echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
             - name: Upload build
