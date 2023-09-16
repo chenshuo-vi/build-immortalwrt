@@ -23,6 +23,12 @@ sed -i 's/AuthMode=OPEN/AuthMode=WPA2PSK/g' package/kernel/mt-drivers/mt_wifi/fi
 sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-drivers/mt_wifi/files/mt7615.1.2G.dat
 sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.1.2G.dat
 
+sed -i 's/Channel=6/Channel=11/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
+sed -i 's/SSID1=OpenWrt/SSID1=qqq/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
+sed -i 's/AuthMode=OPEN/AuthMode=WPA2PSK/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
+sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
+sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
+
 #添加定时重启插件
 sed -i 's/luci-app-filetransfer/luci-app-autoreboot/g' include/target.mk
 #sed -i '/luci-lib-fs/a \	luci-app-autoreboot \\' include/target.mk
