@@ -24,7 +24,6 @@ sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-
 sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.1.2G.dat
 
 #添加定时重启插件
-luci-app-filetransfer
 sed -i 's/luci-app-filetransfer/luci-app-autoreboot/g' include/target.mk
 #sed -i '/luci-lib-fs/a \	luci-app-autoreboot \\' include/target.mk
 #设置定时重启插件
