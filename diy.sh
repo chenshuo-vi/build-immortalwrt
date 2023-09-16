@@ -11,14 +11,14 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #修改wifi信息
 #5g
 sed -i 's/Channel=36/Channel=40/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
-sed -i 's/SSID1=OpenWrt/SSID1=qqq_5g/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
+sed -i 's/SSID1=OpenWrt/SSID1=qqq_5G/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
 sed -i 's/AuthMode=OPEN/AuthMode=WPA2PSK/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
 sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
 sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7615.dat
 
 #2g
 sed -i 's/Channel=6/Channel=11/g' package/kernel/mt-drivers/mt_wifi/files/mt7603.dat
-sed -i 's/SSID1=OpenWrt/SSID1=qqq/g' package/kernel/mt-drivers/mt_wifi/files/mt7603.dat
+sed -i 's/SSID1=OpenWrt_2G/SSID1=qqq/g' package/kernel/mt-drivers/mt_wifi/files/mt7603.dat
 sed -i 's/AuthMode=OPEN/AuthMode=WPA2PSK/g' package/kernel/mt-drivers/mt_wifi/files/mt7603.dat
 sed -i '1,/EncrypType=NONE/s/EncrypType=NONE/EncrypType=AES/' package/kernel/mt-drivers/mt_wifi/files/mt7603.dat
 sed -i 's/WPAPSK1=12345678/WPAPSK1=987654321/g' package/kernel/mt-drivers/mt_wifi/files/mt7603.dat
