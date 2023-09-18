@@ -36,5 +36,8 @@ sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/aut
 #删除upnp
 sed -i 's/luci-app-upnp\ //g' target/linux/ramips/mt7621/target.mk
 
+#修复日志错误
+sed -i '/restart/d' feeds/luci/applications/luci-app-autoreboot/root/etc/init.d/autoreboot
+
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
