@@ -41,6 +41,7 @@ sed -i '/dropbear/d' include/target.mk
 sed -i '/restart/d' feeds/luci/applications/luci-app-autoreboot/root/etc/init.d/autoreboot
 rm -rf target/linux/ramips/mt7621/base-files/etc/init.d/set-irq-affinity
 sed -i 's/loglevel:-5/loglevel:-9/g' package/utils/busybox/files/cron
+sed -i '19,32d' package/network/services/ppp/files/lib/netifd/ppp6-up
 
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
