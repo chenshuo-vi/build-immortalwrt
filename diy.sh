@@ -36,6 +36,7 @@ sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/aut
 #删除upnp dropbear
 sed -i 's/luci-app-upnp\ //g' target/linux/ramips/mt7621/target.mk
 #sed -i '/dropbear/d' include/target.mk
+sed -i 's/ipv6helper\ //g' target/linux/ramips/Makefile
 
 #修复日志错误
 sed -i '/restart/d' feeds/luci/applications/luci-app-autoreboot/root/etc/init.d/autoreboot
