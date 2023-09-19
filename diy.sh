@@ -35,7 +35,7 @@ sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/aut
 
 #删除upnp dropbear
 sed -i 's/luci-app-upnp\ //g' target/linux/ramips/mt7621/target.mk
-sed -i '/dropbear/d' include/target.mk
+#sed -i '/dropbear/d' include/target.mk
 
 #修复日志错误
 sed -i '/restart/d' feeds/luci/applications/luci-app-autoreboot/root/etc/init.d/autoreboot
@@ -44,7 +44,7 @@ sed -i 's/loglevel:-5/loglevel:-9/g' package/utils/busybox/files/cron
 #删除wan6接口，关闭ipv6
 #sed -i '19,32d' package/network/services/ppp/files/lib/netifd/ppp6-up
 #sed -i '/dhcpv6/d' package/network/services/odhcpd/files/odhcpd.defaults
-sed -i '/hybrid/d' package/emortal/ipv6-helper/files/60-ipv6-hybrid
+sed -i '/uci/d' package/emortal/ipv6-helper/files/60-ipv6-hybrid
 
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
