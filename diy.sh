@@ -45,6 +45,7 @@ sed -i 's/loglevel:-5/loglevel:-9/g' package/utils/busybox/files/cron
 #删除wan6接口，关闭ipv6
 #sed -i '19,32d' package/network/services/ppp/files/lib/netifd/ppp6-up
 sed -i '/dhcpv6/d' package/network/services/odhcpd/files/odhcpd.defaults
+sed -i '/dhcp.lan.ra/d' package/network/services/odhcpd/files/odhcpd.defaults
 sed -i '/uci/d' package/emortal/ipv6-helper/files/60-ipv6-hybrid
 
 #关闭防火墙
