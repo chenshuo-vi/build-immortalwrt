@@ -50,5 +50,5 @@ sed -i '/uci/d' package/emortal/ipv6-helper/files/60-ipv6-hybrid
 #关闭防火墙
 #sed -i '3s/1/0/' package/network/config/firewall/files/firewall.config
 
-sed -i 's/2022.82/2020.81/g' package/network/services/dropbear/Makefile
-sed -i 's/3a038d2bbc02bf28bbdd20c012091f741a3ec5cbe460691811d714876aad75d1/48235d10b37775dbda59341ac0c4b239b82ad6318c31568b985730c788aac53b/g' package/network/services/dropbear/Makefile
+#sed -i 's/2022.82/2020.81/g' package/network/services/dropbear/Makefile
+#sed -i 's/3a038d2bbc02bf28bbdd20c012091f741a3ec5cbe460691811d714876aad75d1/48235d10b37775dbda59341ac0c4b239b82ad6318c31568b985730c788aac53b/g' package/network/services/dropbear/Makefile
