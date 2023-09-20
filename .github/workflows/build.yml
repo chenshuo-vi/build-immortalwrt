@@ -14,6 +14,7 @@ jobs:
         steps:
             - name: Clone from github
               uses: actions/checkout@v3
+              uses: csexton/debugger-action@master
 
             - name: Clone immortalwrt repo
               run: |
