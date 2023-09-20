@@ -47,7 +47,7 @@ sed -i 's/loglevel:-5/loglevel:-9/g' package/utils/busybox/files/cron
 sed -i '/dhcpv6/d' package/network/services/odhcpd/files/odhcpd.defaults
 sed -i '/dhcp.lan.ra/d' package/network/services/odhcpd/files/odhcpd.defaults
 sed -i '/uci/d' package/emortal/ipv6-helper/files/60-ipv6-hybrid
-sed -i '/TITLE/a \ \ \ \ DEPENDS:=+odhcpd-ipv6only +odhcp6c +6in4\\' package/emortal/ipv6-helper/Makefile
+sed -i '/TITLE/a \ \ \ \ DEPENDS:=+odhcpd-ipv6only +odhcp6c +6in4' package/emortal/ipv6-helper/Makefile
 sed -i '/luci-proto-ipv6/d' package/emortal/ipv6-helper/Makefile
 sed -i '/kmod-ipt-nat6/d' package/emortal/ipv6-helper/Makefile
 
